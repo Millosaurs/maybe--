@@ -2,21 +2,31 @@
     "name": "@maybe-will-work/api",
     "exports": {
         ".": {
-            "default": "./src/index.ts"
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
         },
         "./context": {
-            "default": "./src/context.ts"
+            "types": "./dist/context.d.ts",
+            "default": "./dist/context.js"
         },
         "./routers": {
-            "default": "./src/routers/index.ts"
+            "types": "./dist/routers/index.d.ts",
+            "default": "./dist/routers/index.js"
         },
         "./routers/index": {
-            "default": "./src/routers/index.ts"
+            "types": "./dist/routers/index.d.ts",
+            "default": "./dist/routers/index.js"
         }
     },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "type": "module",
-    "scripts": {},
+    "scripts": {
+        "build": "tsup src/index.ts src/context.ts src/routers/index.ts --format esm --dts && tsc-alias"
+    },
     "devDependencies": {
+        "tsup": "^8.0.0",
+        "tsc-alias": "^1.8.10",
         "@maybe-will-work/config": "workspace:*"
     },
     "peerDependencies": {

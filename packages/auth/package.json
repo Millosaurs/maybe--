@@ -2,12 +2,19 @@
     "name": "@maybe-will-work/auth",
     "exports": {
         ".": {
-            "default": "./src/index.ts"
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
         }
     },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "type": "module",
-    "scripts": {},
+    "scripts": {
+        "build": "tsup src/index.ts --format esm --dts && tsc-alias"
+    },
     "devDependencies": {
+        "tsup": "^8.0.0",
+        "tsc-alias": "^1.8.10",
         "@maybe-will-work/config": "workspace:*"
     },
     "peerDependencies": {
